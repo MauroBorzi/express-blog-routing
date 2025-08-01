@@ -2,6 +2,9 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+// Richiamo le rotte di post
+const postRouters = require(`./routers/posts.js`)
+
 
 app.use(express.static(`public`))
 
@@ -61,6 +64,9 @@ app.get('/post', (req, res) => {
   res.json(posts)
 
 })
+
+
+app.use(`/posts`, postRouters)
 
 
 app.listen(port, () => {
